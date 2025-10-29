@@ -67,8 +67,10 @@
     <Compile Include="Assets\Mi_juego_2D\Script\ControlAnimacionJugador.cs" />
     <Compile Include="Assets\Mi_juego_2D\Script\ControlFlipJugador.cs" />
     <Compile Include="Assets\Mi_juego_2D\Script\ControlEnemigo.cs" />
+    <Compile Include="Assets\Mi_juego_2D\Script\ControlJuego.cs" />
     <Compile Include="Assets\Mi_juego_2D\Script\ControlSaltoJugadorPreliminar.cs" />
     <Compile Include="Assets\Mi_juego_2D\Script\MovimientoLateralJugador.cs" />
+    <Compile Include="Assets\Mi_juego_2D\Script\ColliderEnemigo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -7,6 +7,7 @@ TagManager:
   - Jugador
   - Enemigo
   - Suelo
+  - ControlJuego
   layers:
   - Default
   - TransparentFX
