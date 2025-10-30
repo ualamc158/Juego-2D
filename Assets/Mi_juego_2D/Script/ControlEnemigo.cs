@@ -1,7 +1,4 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
-
-
 
 public class ControlEnemigo : MonoBehaviour
 {
@@ -9,18 +6,28 @@ public class ControlEnemigo : MonoBehaviour
     public float velocidad;
 
     private Vector3 posicionInicio;
-    private GameObject enemy;
-    private bool moviendoAFin;
+    private bool movimientoAFin;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private FlipCangrejo flipScript;
+    private ControlAnimacionCangrejo animScript;
+
+    private Transform parentTransform;
+
     void Start()
     {
-        enemy = transform.parent.gameObject;
-        posicionInicio = enemy.transform.position;
-        moviendoAFin = true;
+        parentTransform = transform.parent;
+
+        flipScript = GetComponent<FlipCangrejo>();
+        animScript = GetComponent<ControlAnimacionCangrejo>();
+
+        posicionInicio = parentTransform.position;
+        movimientoAFin = true;
+
+
+        DarOrdenDeVoltear(posicionFin - posicionInicio);
     }
 
-    // Update is called once per frame
     void Update()
     {
         moverEnemigo();
@@ -28,9 +35,45 @@ public class ControlEnemigo : MonoBehaviour
 
     private void moverEnemigo()
     {
-        Vector3 posicionDestino = (moviendoAFin) ? posicionFin : posicionInicio;
-        enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, posicionDestino, velocidad * Time.deltaTime);
-        if (enemy.transform.position == posicionFin) moviendoAFin = false;
-        if(enemy.transform.position == posicionInicio) moviendoAFin = true;
+        Vector3 posicionDestino = (movimientoAFin) ? posicionFin : posicionInicio;
+
+        Vector3 posAntesDeMover = parentTransform.position;
+
+        parentTransform.position = Vector3.MoveTowards(posAntesDeMover, posicionDestino, velocidad * Time.deltaTime);
+
+        bool seEstaMoviendo = (parentTransform.position != posAntesDeMover);
+
+
+        if (animScript != null)
+        {
+            animScript.SetMoviendo(seEstaMoviendo);
+        }
+
+
+        if (Vector3.Distance(parentTransform.position, posicionDestino) < 0.1f)
+        {
+            Vector3 proximaDireccion;
+            if (movimientoAFin)
+            {
+                movimientoAFin = false;
+                proximaDireccion = posicionInicio - parentTransform.position;
+            }
+            else
+            {
+                movimientoAFin = true;
+                proximaDireccion = posicionFin - parentTransform.position;
+            }
+
+            DarOrdenDeVoltear(proximaDireccion);
+        }
+    }
+
+    void DarOrdenDeVoltear(Vector3 direccion)
+    {
+
+        if (flipScript != null)
+        {
+            flipScript.Voltear(direccion.x);
+        }
     }
 }

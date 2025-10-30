@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ColliderEnemigo : MonoBehaviour
+public class ControlPowerUP : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,10 +16,10 @@ public class ColliderEnemigo : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Si el objeto ha colisionado con el enemigo es el jugador
-        if(collision.gameObject.CompareTag ("Player"))
+        if (GameObject.FindGameObjectWithTag("Player"))
         {
-          GameObject.FindGameObjectWithTag("ControlJuego").GetComponent<ControlJuego>().FinJuego();
+            GameObject.FindGameObjectWithTag("ControlJuego").GetComponent<ControlJuego>().IncrementarPuntos(5);
+            GameObject.Destroy(this);
         }
     }
 }

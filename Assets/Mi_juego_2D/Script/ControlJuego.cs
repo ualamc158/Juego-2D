@@ -44,4 +44,10 @@ public class ControlJuego : MonoBehaviour
             FinJuego();
         }
     }
+
+    public void GanarJuego()
+    { 
+        puntuacion = (numVidas * 100) + (tiempoNivel - tiempoEmpleado); 
+        Debug.Log("Has ganado el juego! Puntuación final: " + puntuacion);
+    }
 }

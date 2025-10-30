@@ -49,7 +49,7 @@ public class ControlAnimacionJugador : MonoBehaviour
     private bool tocarSuelo()
     {
         // problema de offset +new Vector3(0,-2f,0) para que el rayo salga desde la base del jugador
-        RaycastHit2D toca = Physics2D.Raycast(player_idle.transform.position + new Vector3(0, -1.7f, 0), Vector2.down, 0.2f);
+        RaycastHit2D toca = Physics2D.Raycast(player_idle.transform.position + new Vector3(0, -2f, 0), Vector2.down, 0.2f);
         
 
         // Dibujar rayo
