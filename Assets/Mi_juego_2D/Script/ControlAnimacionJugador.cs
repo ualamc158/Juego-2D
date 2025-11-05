@@ -53,7 +53,7 @@ public class ControlAnimacionJugador : MonoBehaviour
         
 
         // Dibujar rayo
-        Debug.DrawRay(player_idle.transform.position + new Vector3(0, -1.5f, 0), Vector3.down*(toca.distance + 0.5f) , Color.green, 2f);
+        Debug.DrawRay(player_idle.transform.position + new Vector3(0, -1.5f, 0), Vector3.down*(toca.distance + 1f) , Color.green, 2f);
 
         return toca.collider != null;
     }

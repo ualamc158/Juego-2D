@@ -18,8 +18,9 @@ public class ControlPowerUP : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Player"))
         {
-            GameObject.FindGameObjectWithTag("ControlJuego").GetComponent<ControlJuego>().IncrementarPuntos(5);
-            GameObject.Destroy(this);
+            Debug.Log("Toca PowerUp");
+            GameObject.FindGameObjectWithTag("ControlJuego").GetComponent<ControlJuego>().IncrementarPuntos(100);
+            Destroy(gameObject);
         }
     }
 }

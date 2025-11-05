@@ -15,11 +15,7 @@ public class ControlAnimacionPulpo : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
     public void SetMoviendo(bool estaMoviendo)
     {
         if (anim == null) return;

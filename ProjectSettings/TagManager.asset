@@ -9,6 +9,7 @@ TagManager:
   - Suelo
   - ControlJuego
   - PowerUp
+  - Player_idle
   layers:
   - Default
   - TransparentFX
