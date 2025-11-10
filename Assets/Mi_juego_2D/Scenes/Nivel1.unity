@@ -230,7 +230,6 @@ MonoBehaviour:
   numVidas: 3
   puntuacion: 0
   tiempoNivel: 0
-  canvas: {fileID: 1554710207}
 --- !u!4 &41928336
 Transform:
   m_ObjectHideFlags: 0
@@ -6904,8 +6903,16 @@ PrefabInstance:
       value: 1.3164825
       objectReference: {fileID: 0}
     - target: {fileID: 648184516577031107, guid: 7317ed49d802289439f3442300c57ecd, type: 3}
+      propertyPath: m_Size.y
+      value: 2.5176215
+      objectReference: {fileID: 0}
+    - target: {fileID: 648184516577031107, guid: 7317ed49d802289439f3442300c57ecd, type: 3}
       propertyPath: m_Offset.x
       value: 0.052280426
+      objectReference: {fileID: 0}
+    - target: {fileID: 648184516577031107, guid: 7317ed49d802289439f3442300c57ecd, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.20538473
       objectReference: {fileID: 0}
     - target: {fileID: 3184260526873317131, guid: 7317ed49d802289439f3442300c57ecd, type: 3}
       propertyPath: m_Name

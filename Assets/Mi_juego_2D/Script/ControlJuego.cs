@@ -16,7 +16,7 @@ public class ControlJuego : MonoBehaviour
     private GameObject player_idle;
     private SpriteRenderer sprite;
 
-    public Canvas canvas;
+    private Canvas canvas;
     private ControlHUD hud;
 
 
@@ -29,7 +29,13 @@ public class ControlJuego : MonoBehaviour
         jugador = GameObject.FindGameObjectWithTag("Player").gameObject;
         player_idle = jugador.transform.Find("player-idle").gameObject;
         sprite = player_idle.GetComponent<SpriteRenderer>();
+
+        canvas = GameObject.FindFirstObjectByType<Canvas>();
         hud = canvas.GetComponent<ControlHUD>();
+
+        hud.setPuntuacion(puntuacion);
+        hud.setNumVidas(numVidas);
+        hud.setTiempo(tiempoEmpleado);
     }
 
     // Update is called once per frame
@@ -49,8 +55,6 @@ public class ControlJuego : MonoBehaviour
             FinJuego();
         }
 
-        hud.setPuntuacion(puntuacion);
-        hud.setNumVidas(numVidas);
     }
 
     public void FinJuego()
@@ -61,6 +65,7 @@ public class ControlJuego : MonoBehaviour
     public void IncrementarPuntos(int cantidad)
     {
         puntuacion += cantidad;
+        hud.setPuntuacion(puntuacion);
     }
 
     public void QuitarVida()
@@ -76,7 +81,8 @@ public class ControlJuego : MonoBehaviour
             }
             Invoke("HacerVulnerable", 2f);
             sprite.color = Color.red;
-        } 
+        }
+        hud.setNumVidas(numVidas);
     }
 
     public void GanarJuego()
